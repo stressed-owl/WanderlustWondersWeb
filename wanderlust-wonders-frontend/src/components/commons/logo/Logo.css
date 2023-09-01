@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.logo-app-name {
+  font-size: 32px;
+  font-family: "The Girl Next Door", cursive;
+  text-align: center;
+}
+
+.btn-logo {
+  text-decoration: none;
+  color: #000;
+}

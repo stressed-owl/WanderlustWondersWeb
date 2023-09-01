@@ -1,0 +1,16 @@
+.favorite-item-country,
+.favorite-item-state {
+  margin-top: 12px;
+}
+
+.favorite-item {
+  background-color: #EDBFC6;
+  padding: 16px;
+  border-radius: 10px;
+  transition: .35s;
+}
+
+.favorite-item:hover {
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.2);
+    scale: 1.02;
+}

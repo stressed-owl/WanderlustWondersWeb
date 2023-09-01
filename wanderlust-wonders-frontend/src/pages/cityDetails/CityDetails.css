@@ -1,0 +1,40 @@
+.city-details-wrapper {
+  max-width: 1400px;
+  margin: 40px auto 140px auto;
+}
+
+.city-details-info {
+  margin-top: 40px;
+}
+
+.city-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.city-details-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  column-gap: 40px;
+}
+
+.city-details-name {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.city-details-description-wrapper {
+  position: relative;
+}
+
+.city-details-description {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  text-align: justify;
+  width: 400px;
+}

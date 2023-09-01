@@ -1,0 +1,77 @@
+.alert-dialog-wrapper {
+  padding: 16px;
+  width: 520px;
+  background-color: #FFF;
+}
+
+.alert-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-dialog-title {
+  font-size: 18px;
+}
+
+/* Social media list design */
+
+.alert-dialog-social-media {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  padding: 0 8px;
+}
+
+
+
+
+
+/* URL design */
+
+.alert-dialog-url {
+  padding: 10px;
+  display: flex;
+  margin-top: 24px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  border: 1px solid #EDBFC6;
+  background-color: #fafafa;
+}
+
+.btn-dialog-close {
+  background-color: transparent;
+  border: none;
+  transition: .1s;
+}
+
+.btn-dialog-close:active {
+  background-color: #000;
+  opacity: .05;
+  border-radius: 100%;
+}
+
+.url {
+  font-size: 14px;
+}
+
+/* Copy button design */
+
+.btn-copy-url {
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: 24px;
+  border: none;
+  background-color: #EDBFC6;
+  color: #000;
+  transition: all 0.35s;
+}
+
+.btn-copy-url:hover {
+  background-color: #E9AFB9;
+}
+
+.btn-social-media-title {
+  font-size: 13px;
+}

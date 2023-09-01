@@ -1,0 +1,28 @@
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-page-title {
+  font-size: 60px;
+}
+
+.error-page-description {
+  margin-top: 6px;
+}
+
+.error-page-description,
+.error-page-error-type {
+  font-size: 20px;
+}
+
+.error-page-error-type {
+  margin-top: 10px;
+}

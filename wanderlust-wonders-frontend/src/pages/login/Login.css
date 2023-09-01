@@ -1,0 +1,103 @@
+.login-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.login-content-left,
+.login-content-right {
+  height: calc(100vh - 4vh);
+}
+
+/* Left side */
+
+.login-content-left {
+  width: 60%;
+}
+
+/* Right content */
+
+.login-content-right {
+  width: 35%;
+}
+
+.login-content-right-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: inherit;
+}
+
+.login-content-right-upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-content-right-title {
+  font-weight: 500;
+  font-size: 26px;
+}
+
+.login-content-right-message {
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  margin-top: 8px;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 440px;
+}
+
+.login-content-right-form {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.login-content-right-input-field-type {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.login-content-right-lower-title {
+  font-weight: 300;
+  letter-spacing: 0.1px;
+}
+
+.login-content-right-lower-subtitle {
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+/* Submit button */
+
+.btn-submit {
+  border-radius: 6px;
+  border-style: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  padding: 16px;
+  background-color: #edbfc6;
+  display: block;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+  transition: 0.35s;
+}
+
+.btn-submit:hover {
+  background-color: #e9afb9;
+}
+
+/* Sign up button */
+
+.btn-sign-up,
+.btn-forgot-pass {
+  text-decoration: none;
+  color: #000;
+}

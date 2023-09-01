@@ -1,0 +1,7 @@
+{
+    "docwriter.progress.trackFunctions": true,
+    "docwriter.style": "Auto-detect",
+    "docwriter.progress.trackMethods": false,
+    "docwriter.progress.trackClasses": false,
+    "docwriter.progress.trackTypes": false
+}

@@ -1,0 +1,108 @@
+.favorites-content {
+  margin: 110px auto 132px auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+}
+
+/* Left side */
+
+.favorites-content-left {
+  width: 35%;
+}
+
+.favorites-content-left-wrapper {
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.favorites-invalid-input-text {
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #e00000;
+}
+
+.favorites-description {
+  font-size: 24px;
+  width: 400px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.favorites-input-fields input:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+.favorites-input-fields input:focus {
+  outline: none;
+}
+
+.favorites-add-buttons {
+  display: flex;
+  margin-top: 40px;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Right side */
+
+.favorites-content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.favorites-content-right-wrapper {
+  display: grid;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.favorites-clear-button {
+  background-color: transparent;
+  border: none;
+}
+
+.favorite-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-action {
+  padding: 16px;
+  border-style: none;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #edbfc6;
+  transition: 0.35s;
+}
+
+.btn-action:hover {
+  background-color: #e9afb9;
+}
+
+/* Input fields */
+
+.favorites-input-fields {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.favorites-form {
+  display: grid;
+  gap: 16px;
+}
+
+.favorites-input-fields-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}

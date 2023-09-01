@@ -1,0 +1,56 @@
+.signup-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.signup-content-left,
+.signup-content-right {
+  height: calc(100vh - 4vh);
+}
+
+/* Right side */
+
+.signup-content-right {
+  width: 60%;
+}
+
+/* Left side */
+
+.signup-content-left {
+  width: 35%;
+}
+
+.signup-content-left-upper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-content-left-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: inherit;
+}
+
+.signup-content-left-title {
+  font-weight: 500;
+  font-size: 26px;
+  text-align: center;
+}
+
+/* Log in */
+
+.signup-content-left-lower-title {
+  font-weight: 300;
+  letter-spacing: 0.1px;
+}
+
+.signup-content-left-lower-subtitle {
+  font-weight: 600;
+  margin-left: 6px;
+}

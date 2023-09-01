@@ -1,0 +1,18 @@
+.btn {
+    border-radius: 6px;
+    border-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 16px;
+    background-color: #EDBFC6;
+    display: block;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    transition: .35s;
+}
+
+.btn:hover {
+    background-color: #E9AFB9;
+}
+
