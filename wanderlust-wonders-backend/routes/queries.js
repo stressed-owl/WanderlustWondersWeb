@@ -63,8 +63,6 @@ const createUser = async (request, response) => {
   }
 };
 
-// Fetching a list of users
-
 const getUsers = (request, response) => {
   db.query("SELECT * FROM users ORDER BY id ASC", (error, results) => {
     if (error) {
@@ -75,9 +73,7 @@ const getUsers = (request, response) => {
 };
 
 const getUserByEmail = async (email) => {
-  const result = await db.query("SELECT * from users WHERE email = $1", [
-    email,
-  ]);
+  const result = await db.query("SELECT * from users WHERE email = $1", [email]);
 
   if (result.rows.length === 0) {
     throw new Error("User not found");
@@ -115,7 +111,6 @@ const deleteFavorites = (request, response) => {
   );
 };
 
-// Fetching a list of cities to display on homepage
 const getCities = (request, response) => {
   db.query("SELECT * FROM cities ORDER BY id ASC", (error, results) => {
     if (error) {
@@ -125,7 +120,6 @@ const getCities = (request, response) => {
   });
 };
 
-// Fetching a list of images to display on login page
 const getLoginPageImages = (request, response) => {
   db.query(
     "SELECT * FROM login_carousel_images ORDER BY id ASC",
@@ -138,7 +132,6 @@ const getLoginPageImages = (request, response) => {
   );
 };
 
-// Fetching a list of images to display on sign up page
 const getSignUpPageImages = (request, response) => {
   db.query(
     "SELECT * FROM sign_up_carousel_images ORDER BY id ASC",

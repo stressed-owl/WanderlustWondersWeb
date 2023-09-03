@@ -10,33 +10,6 @@ import thunk from "redux-thunk";
 import { reducer } from "./redux/configureStore";
 import Routes from "./routes/Routes";
 import AuthProvider from "./provider/authProvider";
-// const router = createBrowserRouter([
-//   {
-//     path: "/login",
-//     element: <Login />,
-//     errorElement: <ErrorPage />,
-//   },
-//   {
-//     path: "/favorites",
-//     element: <Favorites />,
-//     errorElement: <ErrorPage />,
-//   },
-//   {
-//     path: "/city-details/:id",
-//     element: <CityDetails />,
-//     errorElement: <ErrorPage />,
-//   },
-//   {
-//     path: "/",
-//     element: <App />,
-//     errorElement: <ErrorPage />,
-//   },
-//   {
-//     path: "/signup",
-//     element: <SignUp />,
-//     errorElement: <ErrorPage />,
-//   },
-// ]);
 
 const persistConfig = {
   key: "root",
