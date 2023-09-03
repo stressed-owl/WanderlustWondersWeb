@@ -15,12 +15,12 @@ import {
 } from "react-share";
 import "./SocialMediaButton.css";
 
-function SocialMediaButton({ socialMediaIcon, url }) {
+const SocialMediaButton = ({ socialMediaIcon, url }) => {
   switch (socialMediaIcon) {
     case FacebookIcon:
       return (
         <FacebookShareButton url={url}>
-          <FacebookIcon size={48} round />
+          <FacebookIcon size={64} round />
           <p className="btn-social-media-title">Facebook</p>
         </FacebookShareButton>
       );
@@ -28,7 +28,7 @@ function SocialMediaButton({ socialMediaIcon, url }) {
     case TelegramIcon:
       return (
         <TelegramShareButton url={url}>
-          <TelegramIcon size={48} round />
+          <TelegramIcon size={64} round />
           <p className="btn-social-media-title">Telegram</p>
         </TelegramShareButton>
       );
@@ -36,7 +36,7 @@ function SocialMediaButton({ socialMediaIcon, url }) {
     case EmailIcon:
       return (
         <EmailShareButton url={url}>
-          <EmailIcon size={48} round />
+          <EmailIcon size={64} round />
           <p className="btn-social-media-title">Email</p>
         </EmailShareButton>
       );
@@ -44,7 +44,7 @@ function SocialMediaButton({ socialMediaIcon, url }) {
     case TwitterIcon:
       return (
         <TwitterShareButton url={url}>
-          <TwitterIcon size={48} round />
+          <TwitterIcon size={64} round />
           <p className="btn-social-media-title">Twitter</p>
         </TwitterShareButton>
       );
@@ -52,7 +52,7 @@ function SocialMediaButton({ socialMediaIcon, url }) {
     case WhatsappIcon:
       return (
         <WhatsappShareButton url={url}>
-          <WhatsappIcon size={48} round />
+          <WhatsappIcon size={64} round />
           <p className="btn-social-media-title">Whatsapp</p>
         </WhatsappShareButton>
       );
@@ -60,7 +60,7 @@ function SocialMediaButton({ socialMediaIcon, url }) {
     default:
       return (
         <MailruShareButton>
-          <MailruIcon size={48} round />
+          <MailruIcon size={64} round />
           <p className="btn-social-media-title">MailRU</p>
         </MailruShareButton>
       );
