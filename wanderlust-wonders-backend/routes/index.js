@@ -18,26 +18,22 @@ app.use(bodyParser.json());
 /* GET home page. */
 app.get("/", database.getCities);
 
-/* GET images for login page */
-app.get("/login", database.getLoginPageImages);
-
-/* GET users for login page */
-app.get("/login/users", database.getUsers);
-
+/* These lines of code are defining the routes for handling the signup functionality of the
+application. */
 app.get("/signup", database.getSignUpPageImages);
 app.get("/signup/users", database.getUsers);
-app.get("/favorites", database.getFavorites);
-
 app.post("/signup", database.createUser);
-app.post("/favorites", database.createFavorite);
 
+/* This code block is defining the routes and handling the login functionality for the application. */
+app.get("/login", database.getLoginPageImages);
+app.get("/login/users", database.getUsers);
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await database.getUserByEmail(email);
     const hashedUserPassword = user.password;
-    
+
     if (user) {
       const passwordMatches = await bcrypt.compare(
         password,
@@ -58,7 +54,11 @@ app.post("/login", async (req, res) => {
   }
 });
 
+/* These lines of code are defining the routes for handling CRUD operations on the "favorites"
+resource. */
 app.delete("/favorites/:id", database.deleteFavorite);
 app.delete("/favorites", database.deleteFavorites);
+app.get("/favorites", database.getFavorites);
+app.post("/favorites", database.createFavorite);
 
 module.exports = app;

@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
  * It typically contains information such as the request headers, body, and other metadata. In this
  * case, the `request` object is expected to have a `headers` property, which is an object containing
  * the request headers.
- * @returns The function `getUsesrId` returns the `uerID` extracted from the decoded token.
+ * @returns The function `getUsesrId` returns the `userID` extracted from the decoded token.
  */
 const getUserId = (request) => {
   const token = request.headers.authorization.replace("Bearer ", "");
@@ -17,7 +17,7 @@ const getUserId = (request) => {
 
 /**
  * The function `generateToken` generates a JSON Web Token (JWT) with an email and user ID payload,
- * using a secret key and an expiration time of 1 hour.
+ * using a secret key and an expiration time of 72 hours.
  * @param email - The email parameter is the email address of the user for whom the token is being
  * generated.
  * @param user - The `user` parameter is an object that represents the user for whom the token is being
@@ -26,7 +26,7 @@ const getUserId = (request) => {
  */
 const generateToken = (user) => {
   const payload = { email: user.email, password: user.password, id: user.id };
-  const options = { expiresIn: "1h" };
+  const options = { expiresIn: "72h" };
   const secretKey = process.env.SECRET_KEY;
   const token = jwt.sign(payload, secretKey, options);
   return token;
