@@ -12,7 +12,7 @@ const CustomButton = styled(Button)(() => ({
   color: "#000",
   ":hover": {
     backgroundColor: "#E9AFB9",
-    transition: ".35",
+    transition: ".35s",
   },
 }));
 
