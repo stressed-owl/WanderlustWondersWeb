@@ -11,6 +11,7 @@ import {
 import closeIcon from "../../../../assets/icons/close.svg";
 import "./ShareDialog.css";
 import SocialMediaButton from "../../../buttons/socialMedia/SocialMediaButton";
+import StyledCustomButton from "./components/StyledCustomButton";
 
 function AlertDialog({ onDialogClose, url, socialMediaUrl, onCopyUrl, open }) {
 
@@ -56,9 +57,7 @@ function AlertDialog({ onDialogClose, url, socialMediaUrl, onCopyUrl, open }) {
 
         <div className="alert-dialog-url">
           <p className="url">{url}</p>
-          <button className="btn-copy-url" onClick={onCopyUrl}>
-            Copy
-          </button>
+          <StyledCustomButton title="Copy" onClick={onCopyUrl} />
         </div>
       </div>
     </Dialog>
