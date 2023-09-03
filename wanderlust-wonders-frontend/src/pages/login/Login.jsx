@@ -34,7 +34,7 @@ const Login = () => {
                 City explorers, the urban adventure awaits! Log in now to unlock
                 hidden gems, local secrets, and exciting updates that'll have
                 you navigating cities like a pro. Don't miss out – the streets
-                are calling, and time's ticking! ⏳🌆🗺️
+                are calling, and time's ticking! <span role="img" aria-label="emoji">⏳🌆🗺️</span>
               </p>
               <LoginForm />
             </div>

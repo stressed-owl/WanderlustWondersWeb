@@ -25,17 +25,7 @@ const AuthenticationCarousel = ({ images }) => {
                 alt="City img"
               />
               <p className="auth-carousel-city-desc">
-                <span className="auth-carousel-city-desc-city">
-                  {image.description.substring(
-                    0,
-                    image.description.indexOf(" ")
-                  )}
-                </span>
-                <br />
-                {image.description.substring(
-                  image.description.indexOf(" "),
-                  image.description.length
-                )}
+                {image.description}
               </p>
             </div>
           </div>

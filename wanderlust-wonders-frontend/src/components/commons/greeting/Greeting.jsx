@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Greeting() {
+const Greeting = () => {
   const currentTime = new Date().getHours();
 
   if (6 < currentTime && currentTime < 12) {
@@ -18,3 +18,5 @@ export default function Greeting() {
     return <h1 className="app-greeting">This should never happen</h1>;
   }
 };
+
+export default Greeting;

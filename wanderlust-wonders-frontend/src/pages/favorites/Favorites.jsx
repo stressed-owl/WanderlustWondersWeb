@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../../App.css";
-import FormButton from "../../components/buttons/form/FormButton";
+import StyledCustomButton from "../../components/buttons/form/StyledCustomButton";
 import Footer from "../../components/commons/footer/Footer";
 import Header from "../../components/commons/header/Header";
 import {
@@ -187,14 +187,12 @@ const Favorites = () => {
               </div>
             </div>
             <div className="favorites-add-buttons">
-              <FormButton
+              <StyledCustomButton
                 title="Cancel"
-                className="btn-action"
                 onClick={clearInputFields}
               />
-              <FormButton
+              <StyledCustomButton
                 title="Add"
-                className="btn-action"
                 onClick={() => {
                   handleCreateFavorite();
                 }}
