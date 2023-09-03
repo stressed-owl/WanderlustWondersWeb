@@ -4,8 +4,8 @@ import { IconButton, InputAdornment } from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import FormButton from "../../../../components/buttons/form/FormButton";
-import StyledAuthTextField from "../../../../components/commons/textfields/authentication/StyledAuthTextField";
+import StyledCustomButton from "../../../../components/buttons/form/StyledCustomButton";
+import StyledCustomTextField from "../../../../components/commons/textfields/authentication/StyledCustomTextField";
 import { createUser } from "../../../../redux/signupSlice";
 import PasswordIcon from "@mui/icons-material/Password";
 import EmailIcon from "@mui/icons-material/Email";
@@ -128,7 +128,7 @@ const SignUpForm = () => {
       action="/signup"
       onSubmit={handleSubmit}
     >
-      <StyledAuthTextField
+      <StyledCustomTextField
         type="text"
         value={email}
         label="Email"
@@ -143,7 +143,7 @@ const SignUpForm = () => {
         }}
         error={isInputFieldError}
       />
-      <StyledAuthTextField
+      <StyledCustomTextField
         type={showPassword ? "text" : "password"}
         value={password}
         label="Password"
@@ -169,7 +169,7 @@ const SignUpForm = () => {
         }}
         error={isInputFieldError}
       />
-      <StyledAuthTextField
+      <StyledCustomTextField
         type={showConfirmPassword ? "text" : "password"}
         value={confirmPassword}
         label="Confirm password"
@@ -195,10 +195,9 @@ const SignUpForm = () => {
         }}
         error={isInputFieldError}
       />
-      <FormButton
+      <StyledCustomButton
         type="submit"
         title="Sign up"
-        className="btn"
         onClick={() => {
           handleSignUp();
         }}

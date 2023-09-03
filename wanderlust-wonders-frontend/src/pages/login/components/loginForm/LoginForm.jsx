@@ -6,8 +6,8 @@ import { IconButton, InputAdornment } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../../../api/axios";
-import FormButton from "../../../../components/buttons/form/FormButton";
-import StyledAuthTextField from "../../../../components/commons/textfields/authentication/StyledAuthTextField";
+import StyledCustomButton from "../../../../components/buttons/form/StyledCustomButton";
+import StyledCustomTextField from "../../../../components/commons/textfields/authentication/StyledCustomTextField";
 import { useAuth } from "../../../../provider/authProvider";
 
 const LoginForm = () => {
@@ -23,6 +23,10 @@ const LoginForm = () => {
 
   const [isInputFieldError, setIsInputFieldError] = useState(false);
 
+  /**
+   * The code defines three functions in JavaScript React for handling email and password changes and
+   * form submission.
+   */
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -103,7 +107,7 @@ const LoginForm = () => {
       action="/login"
       onSubmit={handleSubmit}
     >
-      <StyledAuthTextField
+      <StyledCustomTextField
         type="text"
         value={email}
         label="Email"
@@ -118,7 +122,7 @@ const LoginForm = () => {
           ),
         }}
       />
-      <StyledAuthTextField
+      <StyledCustomTextField
         type={showPassword ? "text" : "password"}
         value={password}
         label="Password"
@@ -144,10 +148,9 @@ const LoginForm = () => {
           ),
         }}
       />
-      <FormButton
+      <StyledCustomButton
         type="submit"
         title="Log in"
-        className="btn"
         onClick={() => {
           handleLogIn();
         }}
