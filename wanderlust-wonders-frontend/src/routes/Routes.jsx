@@ -7,6 +7,7 @@ import CityDetails from "../pages/cityDetails/CityDetails";
 import Login from "../pages/login/Login";
 import SignUp from "../pages/signup/SignUp";
 import React from "react";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -29,6 +30,7 @@ const Routes = () => {
           element: <CityDetails />,
         },
       ],
+      errorElement: <ErrorPage />
     },
   ];
 
