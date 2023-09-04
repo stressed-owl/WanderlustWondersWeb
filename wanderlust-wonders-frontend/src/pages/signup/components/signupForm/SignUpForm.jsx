@@ -14,9 +14,11 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [userInputs, setUserInputs] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -25,13 +27,19 @@ const SignUpForm = () => {
 
   const [emailHelperText, setEmailHelperText] = useState("");
   const [passwordHelperText, setPasswordHelperText] = useState("");
-  const [confirmPasswordHelperText, setConfirmPasswordHelperText] = useState("");
+  const [confirmPasswordHelperText, setConfirmPasswordHelperText] =
+    useState("");
+
+  const handleUserInputsChange = (e) => {
+    const { name, value } = e.target;
+    setUserInputs({ ...userInputs, [name]: value });
+  };
 
   const validateEmailAndPassword = () => {
     if (
-      email.length === 0 ||
-      password.length === 0 ||
-      confirmPassword.length === 0
+      userInputs.email.length === 0 ||
+      userInputs.password.length === 0 ||
+      userInputs.confirmPassword.length === 0
     ) {
       setIsInputFieldError(true);
       setEmailHelperText("Both email and password are required");
@@ -40,14 +48,14 @@ const SignUpForm = () => {
       return false;
     }
 
-    if (password.length < 8) {
+    if (userInputs.password.length < 8) {
       setIsInputFieldError(true);
       setPasswordHelperText("Length must be at least 8 symbols");
       setConfirmPasswordHelperText("Length must be at least 8 symbols");
       return false;
     }
 
-    if (password.length > 50) {
+    if (userInputs.password.length > 50) {
       setIsInputFieldError(true);
       setPasswordHelperText("The max length is 50 symbols");
       setConfirmPasswordHelperText("The max length is 50 symbols");
@@ -55,33 +63,23 @@ const SignUpForm = () => {
     }
 
     if (
-      !email.includes("@") ||
-      !email.substring(email.indexOf("@"), email.length).includes(".")
+      !userInputs.email.includes("@") ||
+      !userInputs.email
+        .substring(userInputs.email.indexOf("@"), userInputs.email.length)
+        .includes(".")
     ) {
       setIsInputFieldError(true);
       setEmailHelperText("Invalid email");
       return false;
     }
 
-    if (password !== confirmPassword) {
+    if (userInputs.password !== userInputs.confirmPassword) {
       setIsInputFieldError(true);
       setPasswordHelperText("Passwords are not equal");
       setConfirmPasswordHelperText("Passwords are not equal");
       return false;
     }
     return true;
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -99,17 +97,19 @@ const SignUpForm = () => {
   };
 
   const clearInputFields = () => {
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    setUserInputs({
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
   };
 
   // Handle the creation of the user
 
   const handleSignUp = () => {
     const user = {
-      email: email,
-      password: password,
+      email: userInputs.email,
+      password: userInputs.password,
     };
     if (validateEmailAndPassword()) {
       dispatch(createUser(user));
@@ -129,10 +129,11 @@ const SignUpForm = () => {
       onSubmit={handleSubmit}
     >
       <StyledCustomTextField
+        name="email"
         type="text"
-        value={email}
+        value={userInputs.email || ""}
         label="Email"
-        onChange={handleEmailChange}
+        onChange={handleUserInputsChange}
         helperText={emailHelperText}
         inputProps={{
           startAdornment: (
@@ -144,10 +145,11 @@ const SignUpForm = () => {
         error={isInputFieldError}
       />
       <StyledCustomTextField
+        name="password"
         type={showPassword ? "text" : "password"}
-        value={password}
+        value={userInputs.password || ""}
         label="Password"
-        onChange={handlePasswordChange}
+        onChange={handleUserInputsChange}
         helperText={passwordHelperText}
         inputProps={{
           endAdornment: (
@@ -170,10 +172,11 @@ const SignUpForm = () => {
         error={isInputFieldError}
       />
       <StyledCustomTextField
+        name="confirmPassword"
         type={showConfirmPassword ? "text" : "password"}
-        value={confirmPassword}
+        value={userInputs.confirmPassword || ""}
         label="Confirm password"
-        onChange={handleConfirmPasswordChange}
+        onChange={handleUserInputsChange}
         helperText={confirmPasswordHelperText}
         inputProps={{
           endAdornment: (

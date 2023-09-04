@@ -14,8 +14,8 @@ const LoginForm = () => {
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userInputs, setUserInputs] = useState({ email: "", password: "" });
+  
   const [showPassword, setShowPassword] = useState(false);
 
   const [emailHelperText, setEmailHelperText] = useState("");
@@ -23,16 +23,9 @@ const LoginForm = () => {
 
   const [isInputFieldError, setIsInputFieldError] = useState(false);
 
-  /**
-   * The code defines three functions in JavaScript React for handling email and password changes and
-   * form submission.
-   */
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleUserInputsChange = (e) => {
+    const { name, value } = e.target;
+    setUserInputs({ ...userInputs, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -46,28 +39,27 @@ const LoginForm = () => {
   };
 
   const clearInputFields = () => {
-    setEmail("");
-    setPassword("");
+    setUserInputs({ email: "", password: "" });
   };
 
   const validateEmailAndPassword = () => {
-    if (email.length === 0 || password.length === 0) {
+    if (userInputs.email.length === 0 || userInputs.password.length === 0) {
       setIsInputFieldError(true);
       setEmailHelperText("Both email and password are required");
       setPasswordHelperText("Both email and password are required");
       return false;
     }
-    if (password.length < 8) {
+    if (userInputs.password.length < 8) {
       setIsInputFieldError(true);
       setPasswordHelperText("Length must be at least 8 symbols");
       return false;
     }
-    if (password.length > 50) {
+    if (userInputs.password.length > 50) {
       setIsInputFieldError(true);
       setPasswordHelperText("The max length is 50 symbols");
       return false;
     }
-    if (!(email.includes("@") || email.includes("."))) {
+    if (!(userInputs.email.includes("@") || userInputs.email.includes("."))) {
       setIsInputFieldError(true);
       setEmailHelperText("Invalid email");
       return false;
@@ -76,8 +68,8 @@ const LoginForm = () => {
   };
 
   const user = {
-    email: email,
-    password: password,
+    email: userInputs.email,
+    password: userInputs.password,
   };
 
   const handleLogIn = () => {
@@ -108,10 +100,11 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
     >
       <StyledCustomTextField
+        name="email"
         type="text"
-        value={email}
+        value={userInputs.email || ""}
         label="Email"
-        onChange={handleEmailChange}
+        onChange={handleUserInputsChange}
         helperText={emailHelperText}
         error={isInputFieldError}
         inputProps={{
@@ -123,12 +116,13 @@ const LoginForm = () => {
         }}
       />
       <StyledCustomTextField
+        name="password"
         type={showPassword ? "text" : "password"}
-        value={password}
+        value={userInputs.password || ""}
         label="Password"
         helperText={passwordHelperText}
         error={isInputFieldError}
-        onChange={handlePasswordChange}
+        onChange={handleUserInputsChange}
         inputProps={{
           endAdornment: (
             <InputAdornment position="end">

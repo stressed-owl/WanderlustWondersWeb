@@ -26,19 +26,17 @@ const Favorites = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.favorites.favorites || []);
 
-  const initialValues = {
-    city: "",
-    country: "",
-    state: "",
-  };
-
   const [isInvalidInput, setIsInvalidInput] = useState(false);
   const [invalidInputText, setInvalidInputText] = useState("");
 
   const [isFavoriteCreated, setIsFavoriteCreated] = useState(false);
   const [isDeleteAllItems, setIsDeleteAllItems] = useState(false);
   const [isDeleteOneItem, setIsDeleteOneItem] = useState(false);
-  const [favorite, setFavorite] = useState(initialValues);
+  const [favorite, setFavorite] = useState({
+    city: "",
+    country: "",
+    state: "",
+  });
 
   useEffect(() => {
     dispatch(fetchData());
@@ -187,10 +185,7 @@ const Favorites = () => {
               </div>
             </div>
             <div className="favorites-add-buttons">
-              <StyledCustomButton
-                title="Cancel"
-                onClick={clearInputFields}
-              />
+              <StyledCustomButton title="Cancel" onClick={clearInputFields} />
               <StyledCustomButton
                 title="Add"
                 onClick={() => {
