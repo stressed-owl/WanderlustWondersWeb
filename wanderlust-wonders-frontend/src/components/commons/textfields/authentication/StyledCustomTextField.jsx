@@ -10,27 +10,20 @@ const theme = createTheme({
   },
 });
 
-const StyledCustomTextField = ({
-  label,
-  type,
-  value,
-  onChange,
-  inputProps,
-  helperText,
-  error,
-}) => {
+const StyledCustomTextField = (props) => {
   return (
     <ThemeProvider theme={theme}>
       <CustomTextField
         id="outlined-basic"
         variant="outlined"
-        label={label}
-        type={type}
-        value={value}
-        onChange={onChange}
-        InputProps={inputProps}
-        helperText={helperText}
-        error={error}
+        label={props.label}
+        type={props.type}
+        value={props.value}
+        onChange={props.onChange}
+        InputProps={props.inputProps}
+        helperText={props.helperText}
+        error={props.error}
+        name={props.name}
       />
     </ThemeProvider>
   );

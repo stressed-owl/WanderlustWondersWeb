@@ -25,38 +25,27 @@ const CustomTextField = styled(TextField)(() => ({
   padding: "8px 0px"
 }));
 
-const FavoriteInputField = ({
-  value,
-  onChange,
-  required,
-  label,
-  placeholder,
-  error,
-  options,
-  name,
-  helperText,
-  inputProps,
-}) => {
+const FavoriteInputField = (props) => {
   return (
     <CustomAutocomplete
-      options={options}
-      inputValue={value}
+      options={props.options}
+      inputValue={props.value}
       renderInput={(params) => (
         <ThemeProvider theme={theme}>
           <CustomTextField
             {...params}
             id="standard-basic"
             color="secondary"
-            name={name}
-            value={value}
-            onChange={onChange}
-            label={label}
+            name={props.name}
+            value={props.value}
+            onChange={props.onChange}
+            label={props.label}
             variant="standard"
-            placeholder={placeholder}
-            required={required}
-            error={error}
-            helperText={helperText}
-            InputProps={inputProps}
+            placeholder={props.placeholder}
+            required={props.required}
+            error={props.error}
+            helperText={props.helperText}
+            InputProps={props.inputProps}
           />
         </ThemeProvider>
       )}
