@@ -1,15 +1,16 @@
 import { Snackbar } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import shareIcon from "../../assets/icons/share.svg";
 import ShareDialog from "../../components/commons/alertDialogs/shareDialog/ShareDialog";
 import Footer from "../../components/commons/footer/Footer";
 import Header from "../../components/commons/header/Header";
+import { fetchCities } from "../../redux/citiesSlice";
 import "./CityDetails.css";
 import StyledCustomIconButton from "./components/buttons/StyledCustomIconButton";
 import CityDetailsCarousel from "./components/carousel/CityDetailsCarousel";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCities } from "../../redux/citiesSlice";
+import ShareIcon from "@mui/icons-material/Share";
+import CopyAllIcon from "@mui/icons-material/CopyAll";
 
 const CityDetails = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,8 @@ const CityDetails = () => {
   const [isShareButtonClicked, setIsShareButtonClicked] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isSnackbarShown, setIsSnackbarShown] = useState(false);
-  const [isCopyButtonClicked, setIsCopyButtonClicked] = useState(false);
+  const [isCopyURLButtonClicked, setIsCopyURLButtonClicked] = useState(false);
+  const [isCopyDescButtonClicked, setIsCopyDescButtonClicked] = useState(false);
 
   const handleShareButtonClick = () => {
     setIsShareButtonClicked(true);
@@ -39,12 +41,19 @@ const CityDetails = () => {
   const handleDialogClose = () => {
     setIsShareButtonClicked(false);
     setIsDialogOpen(false);
-    setIsCopyButtonClicked(false);
+    setIsCopyURLButtonClicked(false);
   };
 
-  const handleCopyURL = () => {
-    setIsCopyButtonClicked(true);
-    if (isCopyButtonClicked) setIsSnackbarShown(true);
+  const handleCopyDescButtonClick = () => {
+    setIsCopyDescButtonClicked(true);
+    if (isCopyDescButtonClicked) setIsSnackbarShown(true);
+    else setIsSnackbarShown(false);
+    navigator.clipboard.writeText(city.description);
+  };
+
+  const handleCopyURLButtonClick = () => {
+    setIsCopyURLButtonClicked(true);
+    if (isCopyURLButtonClicked) setIsSnackbarShown(true);
     else setIsSnackbarShown(false);
     navigator.clipboard.writeText(URL);
   };
@@ -61,9 +70,22 @@ const CityDetails = () => {
             </div>
             <div className="city-details-description-wrapper">
               <p className="city-details-description">{city.description}</p>
-              <StyledCustomIconButton onClick={handleShareButtonClick}>
-                <img src={shareIcon} alt="Share icon" />
-              </StyledCustomIconButton>
+              <div className="city-details-description-actions">
+                <StyledCustomIconButton
+                  onClick={() => handleShareButtonClick()}
+                  actionName="Share"
+                  actionDesc="Allows you to share a link of a city with your friends"
+                >
+                  <ShareIcon />
+                </StyledCustomIconButton>
+                <StyledCustomIconButton
+                  onClick={() => handleCopyDescButtonClick()}
+                  actionName="Copy"
+                  actionDesc="Allows you to copy the city's description above"
+                >
+                  <CopyAllIcon />
+                </StyledCustomIconButton>
+              </div>
             </div>
           </div>
         </div>
@@ -75,15 +97,24 @@ const CityDetails = () => {
           open={isDialogOpen}
           url={URL}
           socialMediaUrl={socialMediaURL}
-          onCopyUrl={() => handleCopyURL()}
+          onCopyUrl={() => handleCopyURLButtonClick()}
         />
       )}
 
-      {isCopyButtonClicked && (
+      {isCopyURLButtonClicked && (
         <Snackbar
           open={isSnackbarShown}
-          autoHideDuration={4000}
+          autoHideDuration={2000}
           message="Link copied to clipboard"
+          onClose={() => setIsSnackbarShown(false)}
+        />
+      )}
+
+      {isCopyDescButtonClicked && (
+        <Snackbar
+          open={isSnackbarShown}
+          autoHideDuration={2000}
+          message="Description copied to clipboard"
           onClose={() => setIsSnackbarShown(false)}
         />
       )}

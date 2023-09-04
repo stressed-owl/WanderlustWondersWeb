@@ -26,10 +26,6 @@
   letter-spacing: 2px;
 }
 
-.city-details-description-wrapper {
-  position: relative;
-}
-
 .city-details-description {
   margin-top: 16px;
   font-size: 18px;
@@ -37,4 +33,11 @@
   line-height: 1.6;
   text-align: justify;
   width: 400px;
+}
+
+.city-details-description-actions {
+  display: flex;
+  column-gap: 40px;
+  justify-content: center;
+  align-items: center;
 }
