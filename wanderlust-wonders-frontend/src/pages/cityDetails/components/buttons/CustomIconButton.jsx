@@ -7,8 +7,6 @@ const CustomIconButton = styled(IconButton)(() => ({
     backgroundColor: "#E9AFB9",
     transition: ".35s",
   },
-  position: "absolute",
-  left: "50%",
   marginTop: "32px",
 }));
 

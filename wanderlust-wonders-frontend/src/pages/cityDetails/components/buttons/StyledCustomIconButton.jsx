@@ -19,17 +19,17 @@ const CustomTooltip = styled(({ className, ...props }) => (
   },
 }));
 
-const StyledCustomIconButton = ({ onClick, children }) => {
+const StyledCustomIconButton = (props) => {
   return (
     <CustomTooltip
       title={
         <React.Fragment>
-          <Typography color="inherit">Share</Typography>
-          {"Allows you to share a link of a city with your friends"}
+          <Typography color="inherit">{props.actionName}</Typography>
+          {props.actionDesc}
         </React.Fragment>
       }
     >
-      <CustomIconButton onClick={onClick}>{children}</CustomIconButton>
+      <CustomIconButton onClick={props.onClick}>{props.children}</CustomIconButton>
     </CustomTooltip>
   );
 };
