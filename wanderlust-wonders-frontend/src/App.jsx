@@ -12,7 +12,7 @@ import { fetchCities } from "./redux/citiesSlice";
 
 const App = () => {
   const dispatch = useDispatch();
-  const cities = useSelector((state) => state.cities);
+  const cities = useSelector((state) => state.cities.cities);
 
   useEffect(() => {
     dispatch(fetchCities());

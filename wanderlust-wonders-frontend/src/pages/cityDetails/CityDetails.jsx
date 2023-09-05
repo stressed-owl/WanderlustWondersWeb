@@ -14,7 +14,7 @@ import CopyAllIcon from "@mui/icons-material/CopyAll";
 
 const CityDetails = () => {
   const dispatch = useDispatch();
-  const cities = useSelector((state) => state.cities || []);
+  const cities = useSelector((state) => state.cities.cities);
 
   const { id } = useParams();
 

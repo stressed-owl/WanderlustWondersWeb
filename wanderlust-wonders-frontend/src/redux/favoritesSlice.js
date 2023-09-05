@@ -51,7 +51,6 @@ const favoritesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.fulfilled, (state, action) => {
-        console.log("Favorites", action.payload.favorites);
         return {
           favorites: action.payload.favorites,
         };
