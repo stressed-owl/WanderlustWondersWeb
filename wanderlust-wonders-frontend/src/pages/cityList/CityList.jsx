@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import "./CityList.css";
 import CityListItem from "./components/cityListItem/CityListItem";
 
-function CityList({ cities, sort }) {
+const CityList = memo(function ({ cities, sort }) {
   return (
     <div className="city-list">
       <div className="city-list-wrapper">
@@ -12,6 +12,6 @@ function CityList({ cities, sort }) {
       </div>
     </div>
   );
-}
+});
 
 export default CityList;
