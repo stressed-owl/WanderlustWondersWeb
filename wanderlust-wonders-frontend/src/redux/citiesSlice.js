@@ -4,7 +4,7 @@ import API from "../api/axios";
 export const fetchCities = createAsyncThunk("cities/fetchData", async () => {
   try {
     const response = await API.get();
-    return response.data;
+    return { cities: response.data };
   } catch (error) {
     return error;
   }
@@ -12,11 +12,24 @@ export const fetchCities = createAsyncThunk("cities/fetchData", async () => {
 
 const citiesSlice = createSlice({
   name: "cities",
-  initialState: [],
+  initialState: {
+    cities: [],
+    loading: false,
+  },
   extraReducers: (builder) => {
-    builder.addCase(fetchCities.fulfilled, (state, action) => {
-      return action.payload;
-    });
+    builder
+      .addCase(fetchCities.fulfilled, (state, action) => {
+        return {
+          cities: action.payload.cities,
+          loading: false,
+        };
+      })
+      .addCase(fetchCities.pending, (state, action) => {
+        return {
+          ...state,
+          loading: true,
+        };
+      });
   },
 });
 
